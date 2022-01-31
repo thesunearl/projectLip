@@ -45,15 +45,21 @@ def train_and_eval(colab, batch_size, done_epochs, train_epochs):
     dataset_train = torchvision.datasets.HMDB51(root=root,
                                                 annotation_path=annotation_path,
                                                 frames_per_clip=10,
+                                                frame_rate=5,
                                                 step_between_clips=5,
+                                                fold=1,
                                                 train=True,
-                                                transform=transform_dataset_train)
+                                                transform=transform_dataset_train,
+                                               num_workers=2)
     dataset_test  = torchvision.datasets.HMDB51(root=root,
                                                 annotation_path=annotation_path,
                                                 frames_per_clip=10,
+                                                frame_rate=5,
                                                 step_between_clips=5,
+                                                fold=1,
                                                 train=False,
-                                                transform=transform_dataset_test)
+                                                transform=transform_dataset_test,
+                                               num_workers=2)
 
     # Train set 52.5%, validation set 17.5%, test set 30%
     dataset_len = len(dataset_train)
