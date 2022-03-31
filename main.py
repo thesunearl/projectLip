@@ -80,6 +80,10 @@ def train_and_eval(colab, batch_size, done_epochs, train_epochs):
                                                 shuffle=False)
 
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    
+    # Get Size
+    for batch_index, (videos, audios, labels) in enumerate(loader_train):
+        print(videos[0].size())
 
     # Preparing checkpoint location
     if colab:
