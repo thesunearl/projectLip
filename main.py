@@ -269,7 +269,7 @@ if __name__ == '__main__':
 
     # Consider Google Colab time limit
     # How much epochs to train now
-    train_epochs = 8
+    train_epochs = 16
 
     prepare_dataset(colab)
     train_and_eval(colab, batch_size, done_epochs, train_epochs)
